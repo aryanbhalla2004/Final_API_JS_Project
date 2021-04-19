@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find Your Way</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="app.js"></script>
+</head>
+
+<body>
+  <div class="origin-container">
+    <form class="origin-form">
+      <input placeholder="Find a starting location" type="text">
+    </form>
+
+    <ul class="origins">
+      <li data-long="-97.113936" data-lat="49.823059">
+        <div class="name">Greendell Shopping Centre</div>
+        <div> 1588 St. Mary's Road</div>
+      </li>
+      <li data-long="-97.13841199999999" data-lat="49.893784499999995">
+        <div class="name">Winnipeg Square</div>
+        <div> 360 Main St.</div>
+      </li>
+      <li data-long="-97.203538" data-lat="49.857462">
+        <div class="name">Kenaston Village Mall</div>
+        <div> 1853 Grant Ave.</div>
+      </li>
+      <li data-long="-97.181781" data-lat="49.894495">
+        <div class="name">Mallabar Apparel</div>
+        <div> 931 Wall St</div>
+      </li>
+      <li data-long="-97.1049" data-lat="49.8188">
+        <div class="name">St Vital</div>
+        <div> R2N 1J6</div>
+      </li>
+      <li data-long="-97.203979" data-lat="49.857533">
+        <div class="name">Kenaston Mall Walk-In Clinic</div>
+        <div> A-1859 Grant Avenue</div>
+      </li>
+      <li data-long="-97.1099" data-lat="49.8477">
+        <div class="name">St. Vital North</div>
+        <div> R2M 1C7</div>
+      </li>
+      <li data-long="-97.1108" data-lat="49.8288" class="selected">
+        <div class="name">Saint Vital Center</div>
+        <div> R2M 5E5</div>
+      </li>
+      <li data-long="-97.13" data-lat="49.829432">
+        <div class="name">St. Vital Park</div>
+        <div> 190 River Rd.</div>
+      </li>
+      <li data-long="-97.113376" data-lat="49.851881">
+        <div class="name">St. Vital Library</div>
+        <div> 6 Fermor Ave.</div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="destination-container">
+    <form class="destination-form">
+      <input placeholder="Choose your Destination" type="text">
+    </form>
+
+    <ul class="destinations">
+      <li data-long="-97.1451335" data-lat="49.950905" class="selected">
+        <div class="name">Garden City Shopping Centre</div>
+        <div> 2305 Mcphillips St</div>
+      </li>
+      <li data-long="-97.145537" data-lat="49.9505">
+        <div class="name">Garden City Shopping Centre - Food Court</div>
+        <div> Leila Ave.</div>
+      </li>
+      <li data-long="-97.1436" data-lat="49.952877">
+        <div class="name">Garden City Shopping Centre Bus Loop</div>
+        <div> Leila Ave.</div>
+      </li>
+      <li data-long="-97.1442" data-lat="49.9441">
+        <div class="name">Garden City</div>
+        <div> R2V 3A1</div>
+      </li>
+      <li data-long="-97.12" data-lat="49.89">
+        <div class="name">Central Boniface</div>
+        <div> R2H 2V5</div>
+      </li>
+      <li data-long="-97.22" data-lat="49.87">
+        <div class="name">Central Tuxedo</div>
+        <div> R3P 0G6</div>
+      </li>
+      <li data-long="-97.122994" data-lat="49.781871">
+        <div class="name">Lacoste Garden Centre</div>
+        <div> Winnipeg</div>
+      </li>
+      <li data-long="-97.1473" data-lat="49.9039">
+        <div class="name">Centennial</div>
+        <div> R3A 1R5</div>
+      </li>
+      <li data-long="-97.118599" data-lat="49.787406">
+        <div class="name">Ron Paul Garden Centre</div>
+        <div> Winnipeg</div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="button-container">
+    <button class="plan-trip">Plan My Trip</button>
+  </div>
+
+  <div class="bus-container">
+    <ul class="my-trip">
+      <li><span class="material-icons">exit_to_app</span> Depart at 9:55:00 AM.</li>
+      <li><span class="material-icons">directions_walk</span>Walk for 6 minutes to stop #50577 - Northbound St Mary's at
+        Avalon</li>
+      <li><span class="material-icons">directions_bus</span>Ride the Route 14 Ellice-St. Mary's for 23 minutes.</li>
+      <li><span class="material-icons">transfer_within_a_station</span>Transfer from stop #10643 - Northbound Fort at
+        Graham to stop #10611 - Eastbound Graham at Fort (Wpg Square)</li>
+      <li><span class="material-icons">directions_bus</span>Ride the Route 16 Selkirk-Osborne for 16 minutes.</li>
+      <li><span class="material-icons">transfer_within_a_station</span>Transfer from stop #30296 - Westbound Selkirk at
+        Arlington to stop #30295 - Northbound Arlington at Selkirk</li>
+      <li><span class="material-icons">directions_bus</span>Ride the Route 71 Arlington for 13 minutes.</li>
+      <li><span class="material-icons">directions_walk</span>Walk for 3 minutes to your destination, arriving at
+        11:00:00 AM</li>
+    </ul>
+  </div>
+</body>
+</html>
