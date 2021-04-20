@@ -44,7 +44,7 @@ function drawLocationDOM(locations, outputLocation, route) {
     outputLocation.textContent = ``;
     locations.forEach(singleLocation => {
       outputLocation.insertAdjacentHTML('beforeend', `
-        <li data-long="${singleLocation.center[0]}" data-lat="${singleLocation.center[1]}">
+        <li data-long="${singleLocation.center[0]}" data-lat="${singleLocation.center[1]}" class="">
           <div class="name">${singleLocation.place_name.split(',')[0]}</div>
           <div>${singleLocation.place_name.split(',')[1]}</div>
         </li>
@@ -53,7 +53,7 @@ function drawLocationDOM(locations, outputLocation, route) {
   } else {
     routeDOM.textContent = ``;
     outputLocation.insertAdjacentHTML('beforeend', `
-      <li><span class="material-icons">exit_to_app</span> Depart at ${new Date(locations.segments[0].times.start).toLocaleTimeString('en-US', {hour: '1-digit', minute:'2-digit', hour12: true, second:'2-digit'})}</li>
+      <li><span class="material-icons">exit_to_app</span> Depart at ${new Date(locations.segments[0].times.start).toLocaleTimeString('en-US', {hour: '2-digit', minute:'2-digit', hour12: true, second:'2-digit'})}</li>
     `);
 
     locations.segments.forEach(element => {
@@ -87,17 +87,19 @@ function drawLocationDOM(locations, outputLocation, route) {
 }
 
 originsDOM.addEventListener('click', e => {
+  removeSelected(originsDOM);
+  e.target.closest('LI').classList.add('selected');
   let long = e.target.closest('LI').dataset.long;
   let lat = e.target.closest('LI').dataset.lat;
   origin = `${lat},${long}`;
-  console.log(origin);
 });
 
 destinationDOM.addEventListener('click', e => {
+  removeSelected(destinationDOM);
+  e.target.closest('Li').classList.add('selected')
   let long = e.target.closest('LI').dataset.long;
   let lat = e.target.closest('LI').dataset.lat;
   destination = `${lat},${long}`;
-  console.log(destination);
 });
 
 tripButton.addEventListener('click', e => {
@@ -123,4 +125,10 @@ async function getTripData(){
 
   const outCome = possibleTimes.reduce((prev, current) => (prev.times.durations.total) > (current.times.durations.total) ? prev : current);
   drawLocationDOM(outCome, routeDOM, true);
+}
+
+function removeSelected(location) {
+  for(let x = 0; x < location.children.length; x++){
+    location.children[x].classList.remove('selected');
+  }
 }
