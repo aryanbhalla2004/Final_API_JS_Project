@@ -53,7 +53,7 @@ function drawLocationDOM(locations, outputLocation, route) {
   } else {
     routeDOM.textContent = ``;
     outputLocation.insertAdjacentHTML('beforeend', `
-      <li><span class="material-icons">exit_to_app</span> Depart at ${new Date(locations.segments[0].times.start).toLocaleTimeString('en-US', {hour: '2-digit', minute:'2-digit', hour12: true, second:'2-digit'})}</li>
+      <li><span class="material-icons">exit_to_app</span> Depart at ${new Date(locations.segments[0].times.start).toLocaleTimeString('en-US', {hour: '1-digit', minute:'2-digit', hour12: true, second:'2-digit'})}</li>
     `);
 
     locations.segments.forEach(element => {
@@ -67,13 +67,19 @@ function drawLocationDOM(locations, outputLocation, route) {
             <li><span class="material-icons">directions_walk</span>Walk for ${element.times.durations.total} minutes to stop #${element.to.stop.key} - ${element.to.stop.name}</li>
           `);
         }
-      } else if(element.type === 'ride'){
+      } else if(element.type === 'ride'){ 
+        let name;
+        if(element.route['badge-label'] === "B"){
+          name = "BLUE";
+        } else {
+          name = element.route.name;
+        }
         outputLocation.insertAdjacentHTML('beforeend', `
-          <li><span class="material-icons">directions_bus</span>Ride the ${element.route.name} for ${element.times.durations.total} minutes.</li>
+          <li><span class="material-icons">directions_bus</span>Ride the ${name} for ${element.times.durations.total} minutes.</li>
         `);
       } else if(element.type === 'transfer'){
         outputLocation.insertAdjacentHTML('beforeend', `
-          <li><span class="material-icons">transfer_within_a_station</span>Transfer from stop #10643 - Northbound Fort atGraham to stop #10611 - Eastbound Graham at Fort (Wpg Square)</li>
+          <li><span class="material-icons">transfer_within_a_station</span>Transfer from stop #${element.from.stop.key} - ${element.from.stop.name} to stop #${element.to.stop.key} - ${element.to.stop.name}</li>
         `);
       }
     });
