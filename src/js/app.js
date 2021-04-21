@@ -7,20 +7,16 @@ const tripButton = document.querySelector('.plan-trip');
 let origin = ``;
 let destination = ``;
 
-originForm.addEventListener('keydown', e => {
+originForm.addEventListener('submit', e => {
+  e.preventDefault();
   const inputBar = document.querySelector('.origin-form input');
-  if (e.which === 13) {
-    e.preventDefault();
-    getLocation(inputBar.value, 'origin');
-  }
+  getLocation(inputBar.value, 'origin');
 });
 
-destinationForm.addEventListener('keydown', e => {
+destinationForm.addEventListener('submit', e => {
+  e.preventDefault();
   const inputBar = document.querySelector('.destination-form input');
-  if (e.which === 13) {
-    e.preventDefault();
-    getLocation(inputBar.value, 'destination');
-  }
+  getLocation(inputBar.value, 'destination');
 });
 
 async function getLocation(query, location) {
