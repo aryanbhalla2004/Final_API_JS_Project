@@ -53,14 +53,14 @@ function drawLocationDOM(locations, outputLocation, route) {
   } else {
     routeDOM.textContent = ``;
     outputLocation.insertAdjacentHTML('beforeend', `
-      <li><span class="material-icons">exit_to_app</span> Depart at ${new Date(locations.segments[0].times.start).toLocaleTimeString('en-US', {hour: '2-digit', minute:'2-digit', hour12: true, second:'2-digit'})}</li>
+      <li><span class="material-icons">exit_to_app</span> Depart at ${(new Date(locations.segments[0].times.start).toLocaleTimeString('en-US', {hour: '2-digit', minute:'2-digit', hour12: true, second:'2-digit'})).replace(/^(?:00:)?0?/, '')}</li>
     `);
 
     locations.segments.forEach(element => {
       if(element.type === 'walk'){
         if(element.to === undefined || element.to.destination !== undefined){
           outputLocation.insertAdjacentHTML('beforeend', `
-            <li><span class="material-icons">directions_walk</span>Walk for ${element.times.durations.total} minutes to your destination, arriving at ${new Date(element.times.end).toLocaleTimeString('en-US', {hour: '2-digit', minute:'2-digit', hour12: true, second:'2-digit'})}</li>
+            <li><span class="material-icons">directions_walk</span>Walk for ${element.times.durations.total} minutes to your destination, arriving at ${(new Date(element.times.end).toLocaleTimeString('en-US', {hour: '2-digit', minute:'2-digit', hour12: true, second:'2-digit'})).replace(/^(?:00:)?0?/, '')}</li>
           `);
         } else {
           outputLocation.insertAdjacentHTML('beforeend', `
