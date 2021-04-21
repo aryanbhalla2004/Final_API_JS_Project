@@ -101,7 +101,7 @@ function drawLocationDOM(locations, outputLocation, route) {
 }
 
 tripButton.addEventListener('click', e => {
-  if(destination !== `` && origin !== ``){
+  if (destination !== `` && origin !== ``) {
     getTripData();
   }
 });
