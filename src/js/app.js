@@ -119,7 +119,7 @@ async function getTripData() {
     }
   });
 
-  const bestTime = possibleTimes.reduce((prev, current) => (prev.times.durations.total) > (current.times.durations.total) ? prev : current);
+  const bestTime = possibleTimes.reduce((prev, current) => (prev.times.durations.total) < (current.times.durations.total) ? prev : current);
   drawLocationDOM(bestTime, routeDOM, true);
 }
 
